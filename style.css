@@ -1,0 +1,23 @@
+html 
+{font-family: monospace;
+text-align: center;
+background-color: #FFA756;}
+
+.duza
+{font-size: 4em;}
+
+
+.image
+{max-width: 25%;
+max-height: 25%;}
+
+.button
+{font-family: monospace;
+background-color:#7dc1ff ;}
+.button:hover {
+    transform: translateY(-3px);
+   
+}
+
+.highscore
+{font-size: 1.5em;}
