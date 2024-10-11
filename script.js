@@ -1,38 +1,47 @@
 let score = 0;
 let pscore = document.querySelector("#score");
 let interval;
-let btn = document.querySelector("#dzik");
 let dzikflag = false;
-let answerinterval;
-btn.addEventListener("click",dzik());
+const startbtn = document.querySelector("#startbutton");
+startbtn.addEventListener("click",start);
+const btn = document.querySelector("#dzik");
+btn.addEventListener("click",dzik);
 function start()
 {
     interval = setInterval(incrementscore,1000);
 }
 function dzik() {
-    if (score%7==0 || scorestring.includes("7")) {
+    if (((score%7)==0 || scorestring.includes("7")) && score!=0) {
         dzikflag=true;
     }
-    else {
-        dzikflag=false;
+}
+function checkDzik() {
+    if (dzikflag == false){
+        console.log(score);
+        score = 0;
+        pscore.innerHTML=score;
+        clearInterval(interval);
+        
     }
-    dzikflag=true;
+}
+function incdelay() {
+    dzikflag=false;
+    score+=1;
+}
+function incrementscore()
+{
+    
+    pscore.innerHTML=score;
+    scorestring = score.toString();
+    if (((score%7)==0 || scorestring.includes("7")) && score!=0) {
+        console.log(dzikflag);
+        setTimeout(checkDzik,950);
+    }
+    console.log(dzikflag);
+    setTimeout(incdelay,960);
 
 }
 
-function incrementscore()
-{
-    dzikflag=false;
-    score += 1;
-    pscore.innerHTML=score;
-    scorestring = score.toString();
-    if (score%7==0 || scorestring.includes("7")) {
-        console.log(dzikflag);
-        if (dzikflag == false){
-            score = 0;
-            clearInterval(interval);
-        }
-    }
 
 
 }
